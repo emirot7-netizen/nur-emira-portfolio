@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio website for Nur Emira Binti Jaddil — process, quality, compliance, system assurance, requirements, and materials engineering." />
+  <title>Nur Emira Binti Jaddil | Engineering Portfolio</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --surface-soft: #eef4ff;
+      --ink: #182033;
+      --muted: #5d667a;
+      --line: #dbe4f0;
+      --primary: #1f5eff;
+      --primary-dark: #173db8;
+      --accent: #7b61ff;
+      --green: #0c8c70;
+      --amber: #bd7b00;
+      --shadow: 0 18px 48px rgba(24, 32, 51, 0.10);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #eaf0ff 0, transparent 28rem), var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--ink);
+      color: white;
+      padding: 8px 12px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      top: 12px;
+      border-radius: 8px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 249, 252, 0.82);
+      border-bottom: 1px solid rgba(219, 228, 240, 0.72);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      box-shadow: 0 10px 28px rgba(31, 94, 255, 0.25);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--primary-dark);
+      background: #eaf0ff;
+      outline: none;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 9px 12px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #e8fff8;
+      color: #006c55;
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(12, 140, 112, 0.12);
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 5.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      margin-bottom: 22px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.03rem, 2vw, 1.28rem);
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--ink);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 999px;
+      padding: 13px 18px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      box-shadow: 0 14px 28px rgba(31, 94, 255, 0.25);
+    }
+
+    .btn-secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .profile-card {
+      position: relative;
+      background: linear-gradient(180deg, #ffffff, #f0f5ff);
+      border: 1px solid rgba(219, 228, 240, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(31, 94, 255, 0.18), rgba(123, 97, 255, 0.18));
+      right: -58px;
+      top: -78px;
+    }
+
+    .avatar {
+      position: relative;
+      width: 146px;
+      height: 146px;
+      border-radius: 42px;
+      background: linear-gradient(135deg, #1f5eff, #7b61ff 60%, #0c8c70);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 3.4rem;
+      font-weight: 900;
+      letter-spacing: -0.1em;
+      margin-bottom: 20px;
+      box-shadow: 0 18px 36px rgba(31, 94, 255, 0.28);
+    }
+
+    .profile-card h2 {
+      position: relative;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      position: relative;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .profile-list {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .profile-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .check {
+      flex: 0 0 23px;
+      width: 23px;
+      height: 23px;
+      border-radius: 999px;
+      background: #e8fff8;
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      box-shadow: 0 10px 28px rgba(24, 32, 51, 0.05);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 2.1rem;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 28px;
+      margin-bottom: 26px;
+    }
+
+    .section-label {
+      color: var(--primary-dark);
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+
+    h2.section-title {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+    }
+
+    .section-desc {
+      max-width: 520px;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: 0 12px 32px rgba(24, 32, 51, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.28rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--primary-dark);
+      padding: 7px 11px;
+      font-weight: 760;
+      font-size: 0.86rem;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .focus-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      min-height: 238px;
+      box-shadow: 0 12px 32px rgba(24, 32, 51, 0.055);
+    }
+
+    .focus-card::after {
+      content: "";
+      position: absolute;
+      right: -44px;
+      bottom: -44px;
+      width: 130px;
+      height: 130px;
+      border-radius: 999px;
+      background: rgba(31, 94, 255, 0.08);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #eaf0ff, #f0edff);
+      color: var(--primary-dark);
+      font-size: 1.35rem;
+    }
+
+    .focus-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .focus-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .skill-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      color: var(--muted);
+    }
+
+    .skill-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .level {
+      color: var(--primary-dark);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 12px 32px rgba(24, 32, 51, 0.055);
+    }
+
+    .time {
+      color: var(--primary-dark);
+      font-weight: 850;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.18rem;
+      margin-bottom: 4px;
+    }
+
+    .org {
+      display: block;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item ul {
+      margin-left: 18px;
+      color: var(--muted);
+    }
+
+    .timeline-item li + li {
+      margin-top: 6px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(24, 32, 51, 0.055);
+    }
+
+    .project-visual {
+      min-height: 146px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-end;
+      background: linear-gradient(135deg, #eaf0ff, #f8f2ff);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual::before,
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(31, 94, 255, 0.13);
+    }
+
+    .project-visual::before {
+      width: 138px;
+      height: 138px;
+      right: -42px;
+      top: -52px;
+    }
+
+    .project-visual::after {
+      width: 72px;
+      height: 72px;
+      left: 22px;
+      top: 24px;
+      background: rgba(12, 140, 112, 0.12);
+    }
+
+    .project-label {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-weight: 850;
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-body {
+      padding: 0 22px 22px;
+    }
+
+    .project-body h3 {
+      font-size: 1.12rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 12px;
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      list-style: none;
+    }
+
+    .mini-tags li {
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: #f3f6fb;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-weight: 700;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .fit-card {
+      display: grid;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+
+    .fit-card h3 {
+      font-size: 1.12rem;
+    }
+
+    .fit-card p {
+      color: var(--muted);
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #182033, #1f3c88 56%, #563cb5);
+      color: white;
+      border-radius: 34px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -80px;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-card h2 {
+      position: relative;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      margin-bottom: 14px;
+    }
+
+    .contact-card p {
+      position: relative;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 690px;
+    }
+
+    .contact-actions {
+      position: relative;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-actions .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    footer {
+      padding: 26px 0 44px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    .notice {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .two-col,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .focus-grid,
+      .skills-grid,
+      .project-grid,
+      .fit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 72px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        border-radius: 12px;
+      }
+
+      .stats,
+      .focus-grid,
+      .skills-grid,
+      .project-grid,
+      .fit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-desc {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="container nav" aria-label="Primary navigation">
+      <a href="#home" class="brand" aria-label="Nur Emira home">
+        <span class="brand-mark">NE</span>
+        <span>Nur Emira</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#fit">Role Fit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="status-dot"></span> Open to engineering, assurance & compliance roles</div>
+          <h1>Process, Quality & Compliance Engineer</h1>
+          <p class="hero-subtitle">
+            I support engineering teams through <strong>process stabilization</strong>, <strong>regulatory compliance</strong>, <strong>data-driven root-cause analysis</strong>, and <strong>controlled documentation</strong> — with a growing focus on system assurance and requirements management.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">View Portfolio Cases</a>
+            <a class="btn btn-secondary" href="mailto:emirot7@gmail.com">Contact Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/emirajaddil/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+          <div class="hero-tags" aria-label="Core skills">
+            <span class="tag">CAPA</span>
+            <span class="tag">SOP Governance</span>
+            <span class="tag">DOE Compliance</span>
+            <span class="tag">KPIV & Trend Analysis</span>
+            <span class="tag">QMS Documentation</span>
+            <span class="tag">Minitab</span>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Professional summary card">
+          <div class="avatar" aria-hidden="true">NE</div>
+          <h2>Nur Emira Binti Jaddil</h2>
+          <p>Engineering professional with experience across ferroalloy by-product valorization, semiconductor process engineering, laboratory quality systems, and soil stabilization research.</p>
+          <ul class="profile-list">
+            <li><span class="check">✓</span><span>Kuching, Sarawak / Sapporo, Japan</span></li>
+            <li><span class="check">✓</span><span>Materials Engineering + Engineering Management background</span></li>
+            <li><span class="check">✓</span><span>Experienced with government, university, industry, plant and lab stakeholders</span></li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="container stats" aria-label="Professional snapshot">
+        <div class="stat-card"><strong>5+</strong><span>Years technical experience</span></div>
+        <div class="stat-card"><strong>3</strong><span>Industrial engineering roles</span></div>
+        <div class="stat-card"><strong>4</strong><span>Core domains: process, quality, compliance, R&D</span></div>
+        <div class="stat-card"><strong>2027</strong><span>Expected PhD completion</span></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container two-col">
+        <div class="card">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Evidence-led engineering, not just documentation.</h2>
+        </div>
+        <div class="card">
+          <p>
+            My experience connects plant operations, manufacturing quality, environmental compliance, laboratory testing, and research-based performance evaluation. I have worked on Department of Environment compliance, CEMS/groundwater/wastewater monitoring, process stabilization, KPIV monitoring, failure-analysis data review, SOP/checklist improvement, and QMS documentation.
+          </p>
+          <p style="margin-top: 14px;">
+            For system assurance and requirements roles, I bring transferable strengths in traceable evidence, controlled procedures, non-conformance prevention, cross-functional coordination, and analytical reporting.
+          </p>
+          <div class="pill-grid">
+            <span class="pill">Regulatory compliance</span>
+            <span class="pill">Quality trend monitoring</span>
+            <span class="pill">Process optimization</span>
+            <span class="pill">Technical reporting</span>
+            <span class="pill">Stakeholder coordination</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Functional Areas</div>
+            <h2 class="section-title">What I can support</h2>
+          </div>
+          <p class="section-desc">A portfolio structure designed for recruiters reviewing engineering assurance, quality, compliance, and requirements-management potential.</p>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card">
+            <div class="icon">▦</div>
+            <h3>Compliance & Assurance Evidence</h3>
+            <p>Maintain controlled records, monitoring evidence, regulatory documentation, and technical reports that support audit readiness and compliance closure.</p>
+          </article>
+          <article class="focus-card">
+            <div class="icon">◎</div>
+            <h3>Root-Cause Analysis & CAPA</h3>
+            <p>Use KPIV trends, process data, failure-analysis information, and corrective/preventive action tracking to stabilize process performance.</p>
+          </article>
+          <article class="focus-card">
+            <div class="icon">☑</div>
+            <h3>SOP Governance & Standardization</h3>
+            <p>Develop and revise SOPs, checklists, workflows, and team briefings to ensure consistent implementation across operations.</p>
+          </article>
+          <article class="focus-card">
+            <div class="icon">▣</div>
+            <h3>Quality & Laboratory Methods</h3>
+            <p>Support ASTM/GB standard testing, QMS processes, lab documentation, physical/proximate analysis, data review, and report generation.</p>
+          </article>
+          <article class="focus-card">
+            <div class="icon">↻</div>
+            <h3>Operations & Process Improvement</h3>
+            <p>Improve operational workflows, preventive maintenance coordination, warehouse planning, process productivity, and issue-prevention systems.</p>
+          </article>
+          <article class="focus-card">
+            <div class="icon">⚙</div>
+            <h3>Materials & By-Product Valorization</h3>
+            <p>Coordinate R&D and technical validation for silicomanganese slag, microsilica, soil stabilization, concrete, and performance evaluation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Skills</div>
+            <h2 class="section-title">Tools, methods & working style</h2>
+          </div>
+        </div>
+        <div class="skills-grid">
+          <div class="card">
+            <h3>Technical & Assurance</h3>
+            <ul class="skill-list">
+              <li><span>Regulatory compliance</span><span class="level">Strong</span></li>
+              <li><span>CAPA / root-cause analysis</span><span class="level">Strong</span></li>
+              <li><span>SOPs, checklists & controls</span><span class="level">Strong</span></li>
+              <li><span>QMS documentation</span><span class="level">Strong</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Data & Software</h3>
+            <ul class="skill-list">
+              <li><span>Minitab</span><span class="level">Used</span></li>
+              <li><span>Microsoft Office</span><span class="level">Strong</span></li>
+              <li><span>Oracle ERP</span><span class="level">Used</span></li>
+              <li><span>SmartLab Studio II</span><span class="level">Used</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Communication</h3>
+            <ul class="skill-list">
+              <li><span>Malay</span><span class="level">Fluent</span></li>
+              <li><span>English</span><span class="level">Fluent</span></li>
+              <li><span>Japanese</span><span class="level">Working</span></li>
+              <li><span>Technical reporting</span><span class="level">Strong</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Experience</div>
+            <h2 class="section-title">Industry and research timeline</h2>
+          </div>
+          <p class="section-desc">Relevant work history reframed for process assurance, compliance control, quality improvement, and engineering documentation.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="time">Apr 2024 — Current</div>
+            <div>
+              <h3>PhD Candidate</h3>
+              <span class="org">Hokkaido University · Laboratory of Soil Mechanics</span>
+              <ul>
+                <li>Researching soil stabilization using silicomanganese slag, including mix design, process parameters, strength development, and microstructural evaluation.</li>
+                <li>Presented work at the International Symposium on Land Reclamation, Ground Improvement and Coastal Protection, Singapore.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">May 2021 — Feb 2024</div>
+            <div>
+              <h3>Business Development Engineer</h3>
+              <span class="org">Pertama Ferroalloys Sdn. Bhd. · Bintulu</span>
+              <ul>
+                <li>Led by-product utilization R&D through coordination with government agencies, universities, and industry stakeholders.</li>
+                <li>Maintained Department of Environment Malaysia compliance for waste and by-product handling.</li>
+                <li>Managed plant environmental monitoring including CEMS, groundwater, and wastewater quality.</li>
+                <li>Improved internal policies, warehouse procedures, and operational process standardization.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">May 2020 — Apr 2021</div>
+            <div>
+              <h3>Process Engineer</h3>
+              <span class="org">Western Digital Corporation · Kuching</span>
+              <ul>
+                <li>Stabilized machines and key processes to improve product quality and cost performance.</li>
+                <li>Monitored KPIV trends and implemented corrective and preventive actions.</li>
+                <li>Investigated product defects using trend charts and failure-analysis data to prioritize fixes and confirm effectiveness.</li>
+                <li>Developed SOPs and checklists with embedded EHS risk assessment and team training.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">May 2019 — May 2020</div>
+            <div>
+              <h3>Lab Technician</h3>
+              <span class="org">Elkem Carbon Malaysia · Bintulu</span>
+              <ul>
+                <li>Set up QMS processes for laboratory testing and documentation.</li>
+                <li>Performed physical and proximate analysis according to ASTM and GB standards.</li>
+                <li>Executed experiments to optimize ball-mill feed rate and sampling methods.</li>
+                <li>Issued test data, daily reports, weekly presentations, and specification instructions.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Portfolio Cases</div>
+            <h2 class="section-title">Selected work themes</h2>
+          </div>
+          <p class="section-desc">Replace each card with screenshots, anonymized charts, SOP samples, report pages, or project photos when available.</p>
+        </div>
+
+        <div class="filters" aria-label="Portfolio filters">
+          <button class="filter-btn active" data-filter="all">Show All</button>
+          <button class="filter-btn" data-filter="compliance">Compliance</button>
+          <button class="filter-btn" data-filter="quality">Quality</button>
+          <button class="filter-btn" data-filter="process">Process</button>
+          <button class="filter-btn" data-filter="research">Research</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+          <article class="project-card" data-category="compliance">
+            <div class="project-visual"><span class="project-label">Compliance</span></div>
+            <div class="project-body">
+              <h3>DOE Compliance & Environmental Monitoring</h3>
+              <p>Managed compliance-related monitoring for waste/by-product handling, CEMS, groundwater, and wastewater quality in a ferroalloy plant environment.</p>
+              <ul class="mini-tags"><li>DOE Malaysia</li><li>Monitoring evidence</li><li>Controlled records</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="quality">
+            <div class="project-visual"><span class="project-label">Quality</span></div>
+            <div class="project-body">
+              <h3>KPIV Trend Analysis & CAPA Closure</h3>
+              <p>Used process trends and failure-analysis data to investigate defects, prioritize corrective actions, and verify effectiveness after implementation.</p>
+              <ul class="mini-tags"><li>KPIV</li><li>CAPA</li><li>Failure analysis</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="process">
+            <div class="project-visual"><span class="project-label">Process</span></div>
+            <div class="project-body">
+              <h3>SOP, Checklist & EHS Risk Controls</h3>
+              <p>Developed and revised SOPs and checklists with embedded EHS risk assessment, followed by team briefings to secure implementation.</p>
+              <ul class="mini-tags"><li>SOP</li><li>EHS</li><li>Training</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="quality">
+            <div class="project-visual"><span class="project-label">QMS</span></div>
+            <div class="project-body">
+              <h3>Laboratory QMS & Standard Testing</h3>
+              <p>Set up testing documentation workflows and performed ASTM/GB physical and proximate analysis with traceable reporting.</p>
+              <ul class="mini-tags"><li>ASTM</li><li>GB Standard</li><li>Lab records</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="research">
+            <div class="project-visual"><span class="project-label">Research</span></div>
+            <div class="project-body">
+              <h3>SiMn Slag Valorization & Soil Stabilization</h3>
+              <p>Investigated silicomanganese slag as a stabilization material, connecting mix design, process parameters, strength, and microstructural development.</p>
+              <ul class="mini-tags"><li>SiMn slag</li><li>Mix design</li><li>Performance evaluation</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="process">
+            <div class="project-visual"><span class="project-label">Operations</span></div>
+            <div class="project-body">
+              <h3>Warehouse Process Standardization</h3>
+              <p>Improved internal warehouse processes, policies, and procedures to increase operational efficiency and consistency.</p>
+              <ul class="mini-tags"><li>Oracle ERP</li><li>Procedure control</li><li>Efficiency</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Education</div>
+            <h2 class="section-title">Academic foundation</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="time">2024 — 2027 expected</div>
+            <div>
+              <h3>PhD Candidate, Field Engineering for the Environment</h3>
+              <span class="org">Hokkaido University, Japan</span>
+              <p>Research focus: soil stabilization using silicomanganese slag, mix design, process parameters, strength performance, and microstructural development.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="time">2022 — 2023</div>
+            <div>
+              <h3>Master of Engineering Management</h3>
+              <span class="org">Universiti Malaysia Sarawak, Malaysia · CGPA 3.65</span>
+              <p>Quality, project, risk/crisis, environmental, supply-chain, CAPA, EHS risk, process/cost optimization, and waste-management research.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="time">2014 — 2018</div>
+            <div>
+              <h3>Bachelor of Engineering, Materials Engineering</h3>
+              <span class="org">McMaster University, Canada</span>
+              <p>Dean’s Honour List; capstone project on advanced flame-retardant composites for black boxes, including materials selection, processing, and validation.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fit">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Recruiter View</div>
+            <h2 class="section-title">Fit for System Assurance & Requirements</h2>
+          </div>
+          <p class="section-desc">A targeted section for Sarawak Metro-type roles. It explains how existing experience transfers into system assurance work.</p>
+        </div>
+
+        <div class="fit-grid">
+          <article class="fit-card">
+            <h3>Requirements & Evidence Tracking</h3>
+            <p>Transferable from QMS documentation, SOP controls, standard testing, regulatory monitoring, and technical reporting. Next step: formalize this into requirements traceability matrices and verification evidence logs.</p>
+          </article>
+          <article class="fit-card">
+            <h3>Change Control & Configuration Discipline</h3>
+            <p>Transferable from SOP revisions, checklist updates, process standardization, and warehouse/operations workflow controls. Next step: connect changes to baseline documents, approval routes, and implementation evidence.</p>
+          </article>
+          <article class="fit-card">
+            <h3>Contractor / Consultant Compliance</h3>
+            <p>Transferable from coordination with government agencies, universities, and industry partners, including compliance-driven technical discussions and follow-up actions.</p>
+          </article>
+          <article class="fit-card">
+            <h3>Quality Trends & Preventive Action</h3>
+            <p>Directly supported by KPIV monitoring, trend-chart analysis, failure-analysis review, CAPA implementation, and defect-prevention work in manufacturing.</p>
+          </article>
+        </div>
+
+        <p class="notice">Note: For a public website, avoid uploading confidential plant data, internal SOPs, customer data, full addresses, or proprietary reports. Use anonymized case studies and representative visuals.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-card">
+        <div>
+          <h2>Let’s discuss engineering assurance, compliance, quality, or process-improvement roles.</h2>
+          <p>Available for roles in Kuching/Sarawak and engineering environments that value structured documentation, analytical thinking, process stability, and compliance discipline.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:emirot7@gmail.com">Email Me</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/emirajaddil/" target="_blank" rel="noreferrer">View LinkedIn</a>
+          <a class="btn btn-secondary" href="#home">Back to Top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-flex">
+      <span>© <span id="year"></span> Nur Emira Binti Jaddil. All rights reserved.</span>
+      <span>Portfolio website · Process · Quality · Compliance · Assurance</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        projectCards.forEach((card) => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.style.display = show ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
