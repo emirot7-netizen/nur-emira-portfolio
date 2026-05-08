@@ -533,6 +533,29 @@
       font-weight: 850;
     }
 
+    .timeline-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.company-logo {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(24, 32, 51, 0.08);
+}
+
+.company-logo.wide {
+  width: 150px;
+  height: 95px;
+}
+
     .timeline-item h3 {
       font-size: 1.18rem;
       margin-bottom: 4px;
@@ -769,6 +792,22 @@
     }
 
     @media (max-width: 920px) {
+      .timeline-side {
+  flex-direction: row;
+  align-items: center;
+}
+
+.company-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  padding: 9px;
+}
+
+.company-logo.wide {
+  width: 95px;
+  height: 64px;
+}
       .hero-grid,
       .two-col,
       .contact-card {
@@ -1030,7 +1069,10 @@
 
         <div class="timeline">
           <article class="timeline-item">
-            <div class="time">Apr 2024 — Current</div>
+            <div class="timeline-side">
+  <div class="time">Apr 2024 — Current</div>
+  <img class="company-logo" src="./hokkaido-logo.png" alt="Hokkaido University logo">
+</div>
             <div>
               <h3>PhD Candidate</h3>
               <span class="org">Hokkaido University · Laboratory of Soil Mechanics</span>
@@ -1042,7 +1084,10 @@
           </article>
 
           <article class="timeline-item">
-            <div class="time">May 2021 — Feb 2024</div>
+            <div class="timeline-side">
+  <div class="time">May 2021 — Feb 2024</div>
+  <img class="company-logo wide" src="./pertama-logo.png" alt="Pertama Ferroalloys logo">
+</div>
             <div>
               <h3>Business Development Engineer</h3>
               <span class="org">Pertama Ferroalloys Sdn. Bhd. · Bintulu</span>
@@ -1056,7 +1101,10 @@
           </article>
 
           <article class="timeline-item">
-            <div class="time">May 2020 — Apr 2021</div>
+            <div class="timeline-side">
+  <div class="time">May 2020 — Apr 2021</div>
+  <img class="company-logo wide" src="./western-digital-logo.png" alt="Western Digital logo">
+</div>
             <div>
               <h3>Process Engineer</h3>
               <span class="org">Western Digital Corporation · Kuching</span>
@@ -1070,7 +1118,10 @@
           </article>
 
           <article class="timeline-item">
-            <div class="time">May 2019 — May 2020</div>
+            <div class="timeline-side">
+  <div class="time">May 2019 — May 2020</div>
+  <img class="company-logo wide" src="./elkem-logo.png" alt="Elkem logo">
+</div>
             <div>
               <h3>Lab Technician</h3>
               <span class="org">Elkem Carbon Malaysia · Bintulu</span>
