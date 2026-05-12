@@ -541,6 +541,29 @@
 }
 
 .company-logo {
+  width: 135px;
+  height: 135px;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(24, 32, 51, 0.08);
+}
+
+.company-logo.wide {
+  width: 165px;
+  height: 110px;
+}
+
+    .timeline-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.company-logo {
   width: 125px;
   height: 125px;
   object-fit: contain;
@@ -792,6 +815,22 @@
     }
 
     @media (max-width: 920px) {
+      .timeline-side {
+  flex-direction: row;
+  align-items: center;
+}
+
+.company-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  padding: 9px;
+}
+
+.company-logo.wide {
+  width: 100px;
+  height: 70px;
+}
       .timeline-side {
   flex-direction: row;
   align-items: center;
@@ -1199,49 +1238,63 @@
       </div>
     </section>
 
-    <section id="education">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="section-label">Education</div>
-            <h2 class="section-title">Academic foundation</h2>
-          </div>
+<section id="education">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Education</div>
+        <h2 class="section-title">Academic foundation</h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <article class="timeline-item">
+        <div class="timeline-side">
+          <div class="time">2024 — 2027 expected</div>
+          <img class="company-logo" src="./hokkaido-logo.png" alt="Hokkaido University logo">
         </div>
 
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="time">2024 — 2027 expected</div>
-            <div>
-              <h3>PhD Candidate, Field Engineering for the Environment</h3>
-              <span class="org">Hokkaido University, Japan</span>
-              <li>Research focus: soil stabilization using silicomanganese slag, mix design, process parameters, strength performance, and microstructural development.</li>
-              <li>Presented work at the International Symposium on Land Reclamation, Ground Improvement and Coastal Protection, Singapore.</li>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2022 — 2023</div>
-            <div>
-              <h3>Master of Engineering Management</h3>
-              <span class="org">Universiti Malaysia Sarawak, Malaysia · CGPA 3.61</span>
-              <ul>
-                <li>Management courses <strong>Operational & Maintenance Management, Supply Chain
-Management, Legislative Issues & Contract Management, Environmental
-Management, OSH, Project Management</strong>, and <strong>Risk & Crisis Management</strong> </li>
-              <li>Research Project in <strong>Waste Management of Granulated Silico Manganese Slag and
-Micro silica Bi-products as a Concrete</strong></li></ul>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2014 — 2018</div>
-            <div>
-              <h3>Bachelor of Engineering, Materials Engineering</h3>
-              <span class="org">McMaster University, Canada</span>
-              <p>Dean’s Honour List; capstone project on advanced flame-retardant composites for black boxes, including materials selection, processing, and validation.</p>
-            </div>
-          </article>
+        <div>
+          <h3>PhD Candidate, Field Engineering for the Environment</h3>
+          <span class="org">Hokkaido University, Japan</span>
+          <ul>
+            <li>Research focus: soil stabilization using silicomanganese slag, mix design, process parameters, strength performance, and microstructural development.</li>
+            <li>Presented work at the International Symposium on Land Reclamation, Ground Improvement and Coastal Protection, Singapore.</li>
+          </ul>
         </div>
-      </div>
-    </section>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-side">
+          <div class="time">2022 — 2023</div>
+          <img class="company-logo wide" src="./unimas-logo.png" alt="Universiti Malaysia Sarawak logo">
+        </div>
+
+        <div>
+          <h3>Master of Engineering Management</h3>
+          <span class="org">Universiti Malaysia Sarawak, Malaysia · CGPA 3.61</span>
+          <ul>
+            <li>Management courses <strong>Operational & Maintenance Management, Supply Chain Management, Legislative Issues & Contract Management, Environmental Management, OSH, Project Management</strong>, and <strong>Risk & Crisis Management</strong>.</li>
+            <li>Research Project in <strong>Waste Management of Granulated Silico Manganese Slag and Micro silica Bi-products as a Concrete</strong>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-side">
+          <div class="time">2014 — 2018</div>
+          <img class="company-logo wide" src="./mcmaster-logo.png" alt="McMaster University logo">
+        </div>
+
+        <div>
+          <h3>Bachelor of Engineering, Materials Engineering</h3>
+          <span class="org">McMaster University, Canada</span>
+          <p>Dean’s Honour List; capstone project on advanced flame-retardant composites for black boxes, including materials selection, processing, and validation.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
     <section id="fit">
       <div class="container">
