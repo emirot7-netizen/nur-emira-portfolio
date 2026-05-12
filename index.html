@@ -688,6 +688,71 @@
       letter-spacing: 0.08em;
     }
 
+    /* Project card image header */
+.project-visual.with-image {
+  min-height: 190px;
+  padding: 20px;
+  background: #eaf0ff;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-visual.with-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 0;
+  transition: transform 0.35s ease;
+}
+
+/* Dark/soft overlay so the label remains readable */
+.project-visual.with-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  right: auto;
+  top: auto;
+  border-radius: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 32, 51, 0.04),
+    rgba(24, 32, 51, 0.46)
+  );
+  z-index: 1;
+}
+
+.project-visual.with-image::after {
+  display: none;
+}
+
+.project-visual.with-image .project-label {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.project-card:hover .project-visual.with-image img {
+  transform: scale(1.04);
+}
+
+/* Bullet points inside research cards */
+.research-points {
+  margin: 0 0 14px 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.research-points li + li {
+  margin-top: 6px;
+}
+
     .project-body {
       padding: 0 22px 22px;
     }
@@ -1217,14 +1282,96 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="research">
-            <div class="project-visual"><span class="project-label">Research</span></div>
-            <div class="project-body">
-              <h3>SiMn Slag Valorization & Soil Stabilization</h3>
-              <p>Investigated silicomanganese slag as a stabilization material, connecting mix design, process parameters, strength, and microstructural development.</p>
-              <ul class="mini-tags"><li>SiMn slag</li><li>Mix design</li><li>Performance evaluation</li></ul>
-            </div>
-          </article>
+<article class="project-card" data-category="research">
+  <div class="project-visual with-image">
+    <img src="./research-overview.jpg" alt="SiMn slag soil stabilization research overview" loading="lazy">
+    <span class="project-label">Research</span>
+  </div>
+  <div class="project-body">
+    <h3>SiMn Slag Valorization & Soil Stabilization</h3>
+    <p>Investigated silicomanganese slag as a stabilization material for peat soil, connecting mix design, curing behavior, strength performance, microstructural development, and environmental suitability.</p>
+    <ul class="research-points">
+      <li>Developed peat–SiMn slag–cement composite mixtures.</li>
+      <li>Linked engineering performance with reaction products and material behavior.</li>
+      <li>Combined mechanical, microstructural, mineralogical, and leaching assessments.</li>
+    </ul>
+    <ul class="mini-tags">
+      <li>SiMn slag</li>
+      <li>Peat stabilization</li>
+      <li>Mix design</li>
+    </ul>
+  </div>
+</article>
+
+<article class="project-card" data-category="research">
+  <div class="project-visual with-image">
+    <img src="./mechanical-assessment.jpg" alt="UCS mechanical assessment testing instrument" loading="lazy">
+    <span class="project-label">Mechanical</span>
+  </div>
+  <div class="project-body">
+    <h3>Mechanical Assessment</h3>
+    <p>Evaluated the strength development of peat–SiMn slag–cement composites using unconfined compressive strength testing and subgrade performance benchmarking.</p>
+    <ul class="research-points">
+      <li>Assessed UCS development at different curing periods.</li>
+      <li>Benchmarked treated peat against the 200 kPa minimum subgrade strength requirement.</li>
+      <li>Evaluated the influence of GS, DS, and cement proportions on strength performance.</li>
+      <li>Linked strength improvement with mix design, curing reaction, and microstructural densification.</li>
+    </ul>
+    <ul class="mini-tags">
+      <li>UCS</li>
+      <li>Strength benchmark</li>
+      <li>Curing performance</li>
+    </ul>
+  </div>
+</article>
+
+<article class="project-card" data-category="research">
+  <div class="project-visual with-image">
+    <img src="./morphology-mineralogy.jpg" alt="XRD SEM and SEM-EDS morphology and mineralogy characterization instruments" loading="lazy">
+    <span class="project-label">Characterization</span>
+  </div>
+  <div class="project-body">
+    <h3>Morphology and Mineralogy Characterization</h3>
+    <p>Investigated microstructural and mineralogical evolution using XRD, SEM, and SEM-EDS to identify hydration products and reaction evidence.</p>
+    <ul class="research-points">
+      <li>Used XRD to track mineralogical phase evolution during curing.</li>
+      <li>Used SEM to observe microstructure, pore filling, and cementitious product formation.</li>
+      <li>Used SEM-EDS to map elemental distribution and composition changes.</li>
+      <li>Identified evidence of hydration products such as C-S-H and ettringite.</li>
+    </ul>
+    <ul class="mini-tags">
+      <li>XRD</li>
+      <li>SEM</li>
+      <li>SEM-EDS</li>
+      <li>C-S-H</li>
+      <li>Ettringite</li>
+    </ul>
+  </div>
+</article>
+
+<article class="project-card" data-category="research">
+  <div class="project-visual with-image">
+    <img src="./environmental-assessment.jpg" alt="ICP-OES and leachability environmental assessment instruments" loading="lazy">
+    <span class="project-label">Environmental</span>
+  </div>
+  <div class="project-body">
+    <h3>Environmental Assessment</h3>
+    <p>Assessed the environmental suitability of SiMn slag-stabilized peat through leachability testing and elemental concentration analysis using ICP-OES.</p>
+    <ul class="research-points">
+      <li>Conducted leachability assessment according to BS EN 12457.</li>
+      <li>Used ICP-OES to quantify dissolved elements in leachate.</li>
+      <li>Evaluated the effect of SiMn slag content on leaching behavior.</li>
+      <li>Compared leaching results with relevant environmental guideline limits.</li>
+      <li>Assessed whether cementitious reactions helped retain elements within the solid matrix.</li>
+    </ul>
+    <ul class="mini-tags">
+      <li>ICP-OES</li>
+      <li>BS EN 12457</li>
+      <li>Leachability</li>
+      <li>Environmental compliance</li>
+    </ul>
+  </div>
+</article>
 
           <article class="project-card" data-category="process">
             <div class="project-visual"><span class="project-label">Operations</span></div>
