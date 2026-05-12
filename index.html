@@ -710,6 +710,59 @@
   transition: transform 0.35s ease;
 }
 
+    /* Two-image header for morphology/mineralogy card */
+.project-visual.two-images {
+  min-height: 190px;
+  padding: 20px;
+  background: #eaf0ff;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-visual.two-images::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 32, 51, 0.04),
+    rgba(24, 32, 51, 0.46)
+  );
+  z-index: 2;
+}
+
+.project-visual.two-images::after {
+  display: none;
+}
+
+.dual-image-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 1;
+}
+
+.dual-image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.dual-image-grid img:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.project-visual.two-images .project-label {
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.88);
+}
+
 /* Dark/soft overlay so the label remains readable */
 .project-visual.with-image::before {
   content: "";
@@ -1313,38 +1366,37 @@
     <p>Evaluated the strength development of peat–SiMn slag–cement composites using unconfined compressive strength testing and subgrade performance benchmarking.</p>
     <ul class="research-points">
       <li>Assessed UCS development at different curing periods.</li>
-      <li>Benchmarked treated peat against the 200 kPa minimum subgrade strength requirement.</li>
-      <li>Evaluated the influence of GS, DS, and cement proportions on strength performance.</li>
-      <li>Linked strength improvement with mix design, curing reaction, and microstructural densification.</li>
     </ul>
     <ul class="mini-tags">
       <li>UCS</li>
-      <li>Strength benchmark</li>
       <li>Curing performance</li>
     </ul>
   </div>
 </article>
 
 <article class="project-card" data-category="research">
-  <div class="project-visual with-image">
-    <img src="./morphology-mineralogy.jpg" alt="XRD SEM and SEM-EDS morphology and mineralogy characterization instruments" loading="lazy">
+  <div class="project-visual two-images">
+    <div class="dual-image-grid">
+      <img src="./xrd-instrument.jpg" alt="XRD instrument for mineralogical phase analysis" loading="lazy">
+      <img src="./sem-instrument.jpg" alt="SEM and SEM-EDS instrument for morphology and elemental characterization" loading="lazy">
+    </div>
     <span class="project-label">Characterization</span>
   </div>
+
   <div class="project-body">
     <h3>Morphology and Mineralogy Characterization</h3>
     <p>Investigated microstructural and mineralogical evolution using XRD, SEM, and SEM-EDS to identify hydration products and reaction evidence.</p>
+
     <ul class="research-points">
       <li>Used XRD to track mineralogical phase evolution during curing.</li>
       <li>Used SEM to observe microstructure, pore filling, and cementitious product formation.</li>
       <li>Used SEM-EDS to map elemental distribution and composition changes.</li>
-      <li>Identified evidence of hydration products such as C-S-H and ettringite.</li>
     </ul>
+
     <ul class="mini-tags">
       <li>XRD</li>
       <li>SEM</li>
       <li>SEM-EDS</li>
-      <li>C-S-H</li>
-      <li>Ettringite</li>
     </ul>
   </div>
 </article>
@@ -1362,7 +1414,6 @@
       <li>Used ICP-OES to quantify dissolved elements in leachate.</li>
       <li>Evaluated the effect of SiMn slag content on leaching behavior.</li>
       <li>Compared leaching results with relevant environmental guideline limits.</li>
-      <li>Assessed whether cementitious reactions helped retain elements within the solid matrix.</li>
     </ul>
     <ul class="mini-tags">
       <li>ICP-OES</li>
