@@ -796,6 +796,33 @@
   transform: scale(1.04);
 }
 
+
+/* Consistent photo headers, with full sample containers visible in the slag pair. */
+.project-visual.with-image,
+.project-visual.two-images {
+  height: 220px;
+  min-height: 220px;
+  flex: 0 0 220px;
+}
+
+.project-visual.water-photo img {
+  object-position: center 28%;
+}
+
+.project-visual.briefing-photo img {
+  object-position: center 56%;
+}
+
+.project-visual.laboratory-photo img {
+  object-position: center 56%;
+}
+
+.slag-gallery .dual-image-grid img {
+  object-fit: contain;
+  padding: 8px;
+  background: #f2f0eb;
+}
+
 /* Bullet points inside research cards */
 .research-points {
   margin: 0 0 14px 18px;
@@ -1303,8 +1330,11 @@
 
         <div class="project-grid" id="projectGrid">
           <article class="project-card" data-category="compliance">
-            <div class="project-visual"><span class="project-label">Compliance</span></div>
-            <div class="project-body">
+  <div class="project-visual with-image water-photo">
+    <img src="./water-checking.jpg" alt="Field water monitoring at a groundwater sampling well" loading="lazy" decoding="async">
+    <span class="project-label">Compliance</span>
+  </div>
+  <div class="project-body">
               <h3>DOE Compliance & Environmental Monitoring</h3>
               <p>Managed compliance-related monitoring for waste/by-product handling, CEMS, groundwater, and wastewater quality in a ferroalloy plant environment.</p>
               <ul class="mini-tags"><li>DOE Malaysia</li><li>Monitoring evidence</li><li>Controlled records</li></ul>
@@ -1312,8 +1342,12 @@
           </article>
 
           <article class="project-card" data-category="quality">
-            <div class="project-visual"><span class="project-label">Quality</span></div>
-            <div class="project-body">
+  <div class="project-visual with-image ">
+    <!-- Representative stock photo: Lukas Blazek, https://www.pexels.com/photo/notebook-and-charts-669613/ | Pexels License: https://www.pexels.com/license/ -->
+    <img src="./kpiv-trend-analysis.jpg" alt="Illustrative photo of charts and analytical notes used for trend analysis" loading="lazy" decoding="async">
+    <span class="project-label">Quality</span>
+  </div>
+  <div class="project-body">
               <h3>KPIV Trend Analysis & CAPA Closure</h3>
               <p>Used process trends and failure-analysis data to investigate defects, prioritize corrective actions, and verify effectiveness after implementation.</p>
               <ul class="mini-tags"><li>KPIV</li><li>CAPA</li><li>Failure analysis</li></ul>
@@ -1321,8 +1355,11 @@
           </article>
 
           <article class="project-card" data-category="process">
-            <div class="project-visual"><span class="project-label">Process</span></div>
-            <div class="project-body">
+  <div class="project-visual with-image briefing-photo">
+    <img src="./safety-briefing.jpg" alt="Team safety briefing with personnel wearing protective equipment" loading="lazy" decoding="async">
+    <span class="project-label">Process</span>
+  </div>
+  <div class="project-body">
               <h3>SOP, Checklist & EHS Risk Controls</h3>
               <p>Developed and revised SOPs and checklists with embedded EHS risk assessment, followed by team briefings to secure implementation.</p>
               <ul class="mini-tags"><li>SOP</li><li>EHS</li><li>Training</li></ul>
@@ -1330,8 +1367,12 @@
           </article>
 
           <article class="project-card" data-category="quality">
-            <div class="project-visual"><span class="project-label">QMS</span></div>
-            <div class="project-body">
+  <div class="project-visual with-image laboratory-photo">
+    <!-- Representative stock photo: Ivan S, https://www.pexels.com/photo/laboratory-glasswares-on-the-table-9628811/ | Pexels License: https://www.pexels.com/license/ -->
+    <img src="./laboratory-qms.jpg" alt="Illustrative photo of laboratory glassware and sample solutions" loading="lazy" decoding="async">
+    <span class="project-label">QMS</span>
+  </div>
+  <div class="project-body">
               <h3>Laboratory QMS & Standard Testing</h3>
               <p>Set up testing documentation workflows and performed ASTM/GB physical and proximate analysis with traceable reporting.</p>
               <ul class="mini-tags"><li>ASTM</li><li>GB Standard</li><li>Lab records</li></ul>
@@ -1339,7 +1380,13 @@
           </article>
 
 <article class="project-card" data-category="research">
-<div class="project-visual"><span class="project-label">Research</span></div>
+  <div class="project-visual two-images slag-gallery">
+    <div class="dual-image-grid">
+      <img src="./granulated-simn-slag.jpg" alt="Granulated silicomanganese slag in a labelled sample container" loading="lazy" decoding="async">
+      <img src="./dry-simn-slag.jpg" alt="Dry silicomanganese slag in a labelled sample container" loading="lazy" decoding="async">
+    </div>
+    <span class="project-label">Research</span>
+  </div>
   <div class="project-body">
     <h3>SiMn Slag Valorization &amp; Peat Stabilization</h3>
     <p>Investigated granulated (GS) and dry (DS) silicomanganese slag as secondary materials for cement-assisted stabilization of highly organic peat.</p>
@@ -1397,7 +1444,11 @@
 </article>
 
 <article class="project-card" data-category="research">
-<div class="project-visual"><span class="project-label">Sustainability</span></div>
+  <div class="project-visual with-image ">
+    <!-- Representative stock photo: Michael Pointner, https://www.pexels.com/photo/pipes-with-smoke-on-factory-15893879/ | Pexels License: https://www.pexels.com/license/ -->
+    <img src="./life-cycle-assessment.jpg" alt="Illustrative industrial facility photo representing greenhouse gas emissions assessment" loading="lazy" decoding="async">
+    <span class="project-label">Sustainability</span>
+  </div>
   <div class="project-body">
     <h3>Life-Cycle Greenhouse Gas Assessment</h3>
     <p>Compared cradle-to-site greenhouse gas emissions per tonne of peat stabilized, with sensitivity analyses for slag transport and allocation of production impacts.</p>
@@ -1412,8 +1463,11 @@
 </article>
 
           <article class="project-card" data-category="process">
-            <div class="project-visual"><span class="project-label">Operations</span></div>
-            <div class="project-body">
+  <div class="project-visual with-image ">
+    <img src="./warehouse-dry-slag.jpg" alt="Dry slag stored in an outdoor industrial yard" loading="lazy" decoding="async">
+    <span class="project-label">Operations</span>
+  </div>
+  <div class="project-body">
               <h3>Warehouse Process Standardization</h3>
               <p>Improved internal warehouse processes, policies, and procedures to increase operational efficiency and consistency.</p>
               <ul class="mini-tags"><li>Oracle ERP</li><li>Procedure control</li><li>Efficiency</li></ul>
